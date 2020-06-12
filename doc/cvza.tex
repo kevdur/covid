@@ -1,0 +1,212 @@
+%===============================================================================
+% COVID-19 Reproduction Numbers in South Africa
+% Kevin Durant
+% May 2020
+%===============================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% \usepackage{booktabs} % better looking tables.
+\usepackage{mathtools} % also loads amsmath.
+\usepackage{microtype}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{amssymb}
+\else
+  % Unicode-math should be loaded after other maths- or font-related packages.
+  % It loads amsmath and fontspec if necessary, and enables a custom version of
+  % the Latin Modern Math font by default.
+  \usepackage{unicode-math}
+%   \setmainfont{STIX Two Text}
+%   \setmathfont{STIX Two Math}
+\fi
+\usepackage{biblatex}
+\usepackage{hyperref}
+\addbibresource{cvza.bib}
+
+% General maths commands %======================================================
+
+\newcommand\ds{\displaystyle}                 % large maths.
+\newcommand\ts{\textstyle}                    % small maths.
+\newcommand\mb[1]{\mathbb{#1}}                % mathbb shorthand.
+\newcommand\mc[1]{\mathcal{#1}}               % mathcal shorthand.
+\newcommand\ub[1]{\symbf{#1}}                 % unicode-math symbf shorthand.
+\newcommand\ff[1]{^{\underline{#1}}}          % falling factorial.
+\newcommand\rf[1]{^{\overline{#1}}}           % rising factorial.
+\newcommand\ul[1]{\underline{#1}}             % underline.
+\newcommand\ol[1]{\overline{#1}}              % overline.
+\DeclareMathOperator\Pb{P}                    % probability.
+\DeclareMathOperator\Ex{E}                    % expected value.
+\DeclareMathOperator\Va{V}                    % variance.
+\DeclarePairedDelimiter\lr{\lparen}{\rparen}  % sized parentheses.
+\DeclarePairedDelimiter\lrb{\lbrack}{\rbrack} % sized brackets.
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}   % absolute value symbol.
+\DeclarePairedDelimiter\cl{\lceil}{\rceil}    % ceiling symbol.
+\DeclarePairedDelimiter\fl{\lfloor}{\rfloor}  % floor symbol.
+
+% Title %=======================================================================
+
+\title{Estimating COVID-19 Reproduction Numbers}
+\author{Kevin Durant}
+\date{June 2020}
+
+% Document %====================================================================
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction} %========================================================
+
+This is an \emph{almost} fully Bayesian approach to inferring the effective
+reproduction number of a COVID-19 epidemic based on reported infection counts in
+a given region. This number refers to the expected number of new infections
+caused by a single infected individual at a given stage of the epidemic.
+
+The method discussed here is an extension of one described elsewhere by Kevin
+Systrom~\cite{systrom2020}, which is itself based on work by Bettencourt and
+Ribeiro~\cite{bettencourt2008}. The key point made by the latter authors is that
+under the assumptions of a standard epidemic susceptible-infected~(SIR) model,
+the effective reproduction number of a virus at time~$t$ can be estimated from
+the number of new cases recorded between times~$t-1$ and~$t$, and~$t$ and~$t+1$.
+
+More specifically, let~$R_t$ be the effective reproduction number at time~$t$,
+and assume that this number remains constant over the interval~$(t-1, t]$ (most
+likely a single day)\footnote{Note that our notation differs slightly from that
+used by Bettencourt and Ribeiro---our~$R_t$ and~$\lambda_t$ correspond to
+their~$R_{t-1}$ and~$\Delta T(t)$ respectively.}. Likewise, let~$\lambda_t$ be
+the average number of new infections that occur during this interval---i.e., the
+current rate of infection. One then has the following
+approximation~\cite{bettencourt2008}:
+\begin{equation*}
+  \lambda_t \approx \lambda_{t-1}\exp(\gamma(R_t - 1)),
+\end{equation*}
+in which $\gamma$ is the reciprocal of the serial interval, or infectious
+period, of the virus. Equivalently,
+\begin{equation*}\label{eqn:R_t}
+  R_t \approx \frac{1}{\gamma} \log\lr*{\frac{\lambda_t}{\lambda_{t-1}}} + 1.
+\end{equation*}
+
+The approach outlined here involves modelling the number of observed
+infections~$k_t$ as a stochastic process, and assuming that $k_t$ depends on an
+underlying rate of infection~$\lambda_t$ via a negative binomial distribution (a
+Poisson distribution can also be used). One can then infer the infection
+rates~$\lambda_t$ analytically, and use them to estimate effective reproduction
+numbers by applying equation~\eqref{eqn:R_t}.
+
+\section{The stochastic process} %==============================================
+
+Let~$\ub{k} = k_1, \dots, k_{t-1}$ be a sequence of observed infection counts,
+and~$\ub{\lambda}$ the corresponding sequence of unknown infection rates. The
+primary assumption is that each~$k$ and~$\lambda$ are related via a negative
+binomial distribution:
+\begin{equation}\label{eqn:likelihood}
+  \Pb(k_t \mid \lambda_t, \ub{k}) = \Pb(k_t \mid \lambda_t)
+  = NB\lr*{k_t \mid r, \frac{\lambda_t}{r + \lambda_t} = p_t},
+\end{equation}
+where $r$ is an unknown dispersion parameter and $p_t$ is a reparameterisation
+of $\lambda_t$ as a `success' probability. Parameterised in this way, the
+negative binomial distribution converges to a Poisson distribution of
+rate~$\lambda_t$ as~$r \to \infty$, and by adjusting $r$ we can control the
+level of variance inherent to the distribution (smaller values of $r$ result in
+higher variance).
+
+Inference of the rate sequence~$\ub{\lambda}$ is performed iteratively, by
+repeated application of Bayes' rule:
+\begin{equation*}
+  \Pb(\lambda_t \mid k_t, \ub{k}) \propto \Pb(k_t \mid \lambda_t)
+    \Pb(\lambda_t \mid \ub{k}).
+\end{equation*}
+The first term on the right-hand side---the likelihood function---is simply the
+negative binomial distribution given above. The second term is a predictive
+prior on~$\lambda_t$ given only the \emph{past} infection counts~$\ub{k}$.
+
+The conjugate prior for the negative binomial likelihood function (with known
+dispersion) is the beta distribution, and the change-of-variable formula for
+probability density functions implies that the corresponding prior on
+$\lambda_t$ is the beta prime distribution, i.e.:
+\begin{equation*}
+  \Pb(p_t) = B(p_t \mid \alpha, \beta) \Rightarrow
+    \Pb(\lambda_t) = BP(\lambda_t \mid \alpha, \beta)
+\end{equation*}
+
+In the case of a Gaussian stochastic process, one would derive such a predictive
+prior under the simple assumption of additive Gaussian noise on the previous
+latent variable, resulting in a distribution that is similar to the previous
+posterior but with higher variance. This involves solving an integral of the
+form
+\begin{equation*}
+  \Pb(\lambda_t \mid \ub{k}) = \int \Pb(\lambda_t \mid \lambda_{t-1})
+    \Pb(\lambda_{t-1} \mid \ub{k})\, d\lambda_{t-1},
+\end{equation*}
+which is tractable in the Gaussian case.
+
+Although the situation is not quite as straightforward here, we can achieve a
+similar outcome by assuming the relationship to the previous posterior directly:
+specifically, if
+\begin{equation*}
+  \Pb(\lambda_{t-1} \mid \ub{k}) \sim
+    \Gamma(\lambda_{t-1} \mid \alpha_{t-1}, \beta_{t-1}),
+\end{equation*}
+we might assume a predictive prior of the form
+\begin{align}\label{eqn:prior}
+  \Pb(\lambda_t \mid \ub{k}) &\sim
+    \Gamma(\lambda_t \mid \alpha_{t-1}/\tau, \beta_{t-1}/\tau) \\
+  &= \Gamma\lr*{\lambda_t \mid a_t, b_t}.
+\end{align}
+This is a straightfoward prior that has the same mean as the predictive
+posterior on~$\lambda_{t-1}$, but a variance that is larger by a factor~$\tau$
+(the mean and variance of a gamma distribution are $\alpha/\beta$ and
+$\alpha/\beta^2$ respectively).
+
+One could just as easily make use of a predictive prior that introduces additive
+noise, unlike the multiplicative noise described above. The main reason for
+choosing multiplicative noise here is that changes in scale made to~$\lambda_t$
+result in additive changes to~$R_t$, so in this way one is effectively
+introducing additive noise into the derived reproduction number process.
+
+The remaining details of the stochastic process now follow from
+assumptions~\eqref{eqn:likelihood} and~\eqref{eqn:prior}. Firstly--and most
+importantly---the posterior on~$\lambda_t$ is given by
+\begin{align*}
+  \Pb(\lambda_t \mid k_t, \ub{k}) &\propto \Pb(k_t \mid \lambda_t)
+    \Pb(\lambda_t \mid \ub{k}) \\
+  &= \Gamma(k_t \mid \phi, \lambda_t)\, \Gamma\lr*{\lambda_t \mid a_t, b_t} \\
+  &\sim \lambda_t^\phi \exp(-k_t\lambda_t) \cdot
+    \lambda_t^{a_t-1} \exp\lr*{-b_t\lambda_t} \\
+  &\Rightarrow \Gamma\lr*{\lambda_t \mid a_t + \phi, b_t + k_t} \\
+  &= \Gamma(\lambda_t \mid \alpha_t, \beta_t).
+\end{align*}
+
+Secondly, we can derive the marginal likelihood of observation~$k_t$ given the
+previous observations:
+\begin{align*}
+  \Pb(k_t \mid \ub{k}) &= \int \Pb(k_t, \lambda_t \mid \ub{k})\, d\lambda_t \\
+  &= \int \Gamma(k_t \mid \phi, \lambda_t)\,
+    \Gamma\lr*{\lambda_t \mid a_t, b_t}\, d\lambda_t \\
+  &= \frac{k_t^{\phi-1}b_t^{a_t}}
+    {\Gamma(\phi)\Gamma(a_t)} \int \lambda_t^{a_t+\phi-1}
+    \exp\lr*{-\lr*{b_t + k_t}\lambda_t}\, d\lambda_t \\
+  &= \frac{b_t^{a_t} k_t^{\phi-1}}{\lr*{b_t + k_t}^{a_t+\phi}}
+    \frac{1}{\Beta(a_t, \phi)},
+\end{align*}
+where~$\Beta(x, y)$ denotes the beta function. This allows us to compute the
+overall marginal likelihood iteratively, since
+\begin{equation*}
+  \Pb(\ub{k}) = \prod_{i=1}^{t-1} \Pb(k_i \mid k_1, \dots, k_{i-1}).
+\end{equation*}
+The marginal likelihood will allow us to compare the relative appropriateness
+of values of~$\phi$ and~$\tau$, as well as of the alteration to the predictive
+prior suggested in the next section.
+
+\subsection*{A regression-based prior} %========================================
+
+
+
+% Bibliography %================================================================
+
+\printbibliography
+
+\end{document}

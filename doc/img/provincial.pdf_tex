@@ -1,0 +1,109 @@
+%% Creator: Inkscape 1.0 (4035a4f, 2020-05-01), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'provincial.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{360.14208984bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.49940819)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{provincial.pdf}}%
+    \put(0.11534917,1.07906368){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}15 Mar\end{tabular}}}}%
+    \put(0.39057387,1.07906368){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}12 Apr\end{tabular}}}}%
+    \put(0.66579857,1.07906368){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}10 May\end{tabular}}}}%
+    \put(0.94102328,1.07906368){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}07 Jun\end{tabular}}}}%
+    \put(0.01497212,1.09737937){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}0\end{tabular}}}}%
+    \put(0.01497212,1.16239538){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}1\end{tabular}}}}%
+    \put(0.01497212,1.22739056){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}2\end{tabular}}}}%
+    \put(0.01497212,1.29238574){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}3\end{tabular}}}}%
+    \put(0.01497212,1.35738092){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{provincial.pdf}}%
+    \put(0.11534917,0.74297756){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}15 Mar\end{tabular}}}}%
+    \put(0.39057387,0.74297756){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}12 Apr\end{tabular}}}}%
+    \put(0.66579857,0.74297756){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}10 May\end{tabular}}}}%
+    \put(0.94102328,0.74297756){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}07 Jun\end{tabular}}}}%
+    \put(0.01497212,0.76129327){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}0\end{tabular}}}}%
+    \put(0.01497212,0.82630928){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}1\end{tabular}}}}%
+    \put(0.01497212,0.89130446){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}2\end{tabular}}}}%
+    \put(0.01497212,0.95629964){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}3\end{tabular}}}}%
+    \put(0.01497212,1.02129482){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{provincial.pdf}}%
+    \put(0.11534917,0.40689151){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}15 Mar\end{tabular}}}}%
+    \put(0.39057387,0.40689151){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}12 Apr\end{tabular}}}}%
+    \put(0.66579857,0.40689151){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}10 May\end{tabular}}}}%
+    \put(0.94102328,0.40689151){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}07 Jun\end{tabular}}}}%
+    \put(0.01497212,0.42520717){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}0\end{tabular}}}}%
+    \put(0.01497212,0.49022318){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}1\end{tabular}}}}%
+    \put(0.01497212,0.55521836){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}2\end{tabular}}}}%
+    \put(0.01497212,0.62021354){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}3\end{tabular}}}}%
+    \put(0.01497212,0.68520872){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{provincial.pdf}}%
+    \put(0.11534917,0.07080539){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}15 Mar\end{tabular}}}}%
+    \put(0.39057387,0.07080539){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}12 Apr\end{tabular}}}}%
+    \put(0.66579857,0.07080539){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}10 May\end{tabular}}}}%
+    \put(0.94102328,0.07080539){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}07 Jun\end{tabular}}}}%
+    \put(0.01497212,0.08912108){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}0\end{tabular}}}}%
+    \put(0.01497212,0.15413708){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}1\end{tabular}}}}%
+    \put(0.01497212,0.21913226){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}2\end{tabular}}}}%
+    \put(0.01497212,0.28412744){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}3\end{tabular}}}}%
+    \put(0.01497212,0.34912262){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{provincial.pdf}}%
+    \put(0.10035508,0.02045026){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\(R_t\)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{provincial.pdf}}%
+    \put(0.50019727,1.43276783){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Effective Reproduction Number\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{provincial.pdf}}%
+    \put(0.50989396,1.37862253){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}EC\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{provincial.pdf}}%
+    \put(0.50859239,1.0433382){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}GP\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{provincial.pdf}}%
+    \put(0.50855985,0.70597136){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}KZN\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{provincial.pdf}}%
+    \put(0.50956857,0.37068703){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}WC\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,102 @@
+%===============================================================================
+% COVID-19 Reproduction Numbers in South Africa
+% Kevin Durant
+% May 2020
+%===============================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% \usepackage{booktabs} % better looking tables.
+\usepackage{mathtools} % also loads amsmath.
+\usepackage{microtype}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{amssymb}
+\else
+  % Unicode-math should be loaded after other maths- or font-related packages.
+  % It loads amsmath and fontspec if necessary, and enables a custom version of
+  % the Latin Modern Math font by default.
+  \usepackage{unicode-math}
+%   \setmainfont{STIX Two Text}
+%   \setmathfont{STIX Two Math}
+\fi
+\usepackage{biblatex}
+\usepackage{svg}
+\usepackage{hyperref}
+\addbibresource{cvza.bib}
+
+% General maths commands %======================================================
+
+\DeclarePairedDelimiter\lr{\lparen}{\rparen}  % sized parentheses.
+\DeclareMathOperator\Pb{P}                    % probability.
+\DeclareMathOperator\B{B}                     % beta distribution.
+\DeclareMathOperator\BP{BP}                   % beta prime distribution.
+\DeclareMathOperator\NB{NB}                   % negative binomial distribution.
+
+% Title %=======================================================================
+
+\title{Model Summary}
+\author{Kevin Durant}
+\date{}
+
+% Document %====================================================================
+
+\begin{document}
+
+\maketitle
+
+\section{Definitions} %=========================================================
+
+$k_t$: number of new infections on day $t$. \\
+$\lambda_t$: underlying daily rate of infection (and expected number of new
+infections) on day $t$.
+
+\section{Assumptions} %=========================================================
+
+Firstly, that $k_t$ depends on $\lambda_t$ via a negative binomial distribution
+with dispersion parameter $r$:
+\begin{equation*}
+  \Pb(k_t \mid r, \lambda_t)
+  = \NB\lr*{k_t \Bigm\vert r, \frac{\lambda}{r + \lambda} = p_t}.
+\end{equation*}
+
+Secondly, that the posterior on $p_t$ is a beta distribution (which is the
+conjugate prior for the negative binomial with known dispersion):
+\begin{align*}
+  \Pb(p_t \mid k_1, \dots, k_t) &= \B(p_t \mid \alpha_t, \beta_t) \\
+  \Leftrightarrow \Pb\lr*{\frac{\lambda_t}{r} \Bigm\vert k_1, \dots, k_t}
+    &= \BP\lr*{\frac{\lambda_t}{r} \Bigm\vert \alpha_t, \beta_t}.
+\end{align*}
+As indicated here, this is equivalent to the assumption of a beta prime prior
+on $\lambda_t/r$.
+
+Thirdly, we assume that the predictive prior on $p_t$ is related to the
+posterior on $p_{t-1}$ as follows:
+\begin{align*}
+  \Pb(p_t \mid k_1, \dots, k_{t-1})
+    &= \B\lr*{p_t \Bigm\vert \frac{\alpha_{t-1}}{c}, \frac{\beta_{t-1}}{c}} \\
+  \Leftrightarrow \Pb\lr*{\frac{\lambda_t}{r} \Bigm\vert k_1, \dots, k_{t-1}}
+    &= \BP\lr*{\frac{\lambda_t}{r} \Bigm\vert
+    \frac{\alpha_{t-1}}{c}, \frac{\beta_{t-1}}{c}}.
+\end{align*}
+
+\section{Results} %=============================================================
+
+The parameters of the posterior distributions satisfy
+\begin{align*}
+  \alpha_t &= \frac{\alpha_{t-1}}{c} + k_t
+    = \frac{a_1}{c^{t-1}} + \sum_{i=0}^{t-1} \frac{k_{t-i}}{c^i}, \\
+  \beta_t &= \frac{\beta_{t-1}}{c} + r
+    = \frac{b_1}{c^{t-1}} + \sum_{i=0}^{t-1} \frac{r}{c_i},
+\end{align*}
+and the marginal likelihood of the model parameters $r$ and $c$ is
+\begin{align*}
+  \Pb(k_1, \dots, k_t \mid r, c)
+    &= \prod_{t=1}^{t} \Pb(k_t \mid k_1, \dots, k_{t-1}, r, c) \\
+  &= \prod_{t=1}^{t} \frac{1}{k_t\B(k_t, r)}
+    \frac{\B(a_t + k_t, b_t + r)}{\B(a_t, b_t)} \quad (\text{if } k_t > 0).
+\end{align*}
+
+\end{document}

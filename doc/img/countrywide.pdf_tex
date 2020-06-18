@@ -1,0 +1,71 @@
+%% Creator: Inkscape 1.0 (4035a4f, 2020-05-01), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'countrywide.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{360.14208984bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.49980273)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{countrywide.pdf}}%
+    \put(0.11534917,0.06664036){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}15 Mar\end{tabular}}}}%
+    \put(0.39057387,0.06664036){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}12 Apr\end{tabular}}}}%
+    \put(0.66579857,0.06664036){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}10 May\end{tabular}}}}%
+    \put(0.94102328,0.06664036){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}07 Jun\end{tabular}}}}%
+    \put(0.01497212,0.08496646){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}0\end{tabular}}}}%
+    \put(0.01497212,0.16566378){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}1\end{tabular}}}}%
+    \put(0.01497212,0.2463611){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}2\end{tabular}}}}%
+    \put(0.01497212,0.32705841){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}3\end{tabular}}}}%
+    \put(0.01497212,0.40775573){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{countrywide.pdf}}%
+    \put(0.10035508,0.02149152){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\(R_t\)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{countrywide.pdf}}%
+    \put(0.50019727,0.4581525){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Effective Reproduction Number\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

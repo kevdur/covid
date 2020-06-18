@@ -5,6 +5,7 @@
 import numpy as np
 from scipy.optimize import minimize_scalar
 from scipy.special import betaln
+# from scipy.stats import betaprime
 
 
 def posteriors(df, r, c, col='new', a=1, b=3):
@@ -26,11 +27,19 @@ def posteriors(df, r, c, col='new', a=1, b=3):
     ks = np.nan_to_num(df[col])  # replaces NaNs with 0.
     rs = np.where(np.isnan(df[col]), 0, r)  # 0 if NaN, r otherwise.
     alpha, beta = a + ks[0], b + rs[0]
+    # r = 1
+    # alpha, beta = a + ks[0], b + r
+    # rs = [r]
     alphas, betas = [alpha], [beta]
     for k, r in zip(ks[1:], rs[1:]):
+        # for k in ks[1:]:
         alpha, beta = alpha/c + k, beta/c + r
+        # r = r*betaprime.median(alpha, beta)
+        # alpha, beta = alpha/c + k, beta/c + r
+        # rs.append(r)
         alphas.append(alpha)
         betas.append(beta)
+    # df['r'] = rs
     df['alpha'] = alphas
     df['beta'] = betas
     return df

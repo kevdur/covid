@@ -1,0 +1,8 @@
+-e .
+flake8
+hvplot
+jupyter
+numpy
+pandas
+plotly
+scipy

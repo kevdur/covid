@@ -27,7 +27,7 @@ clean:
 ## Process raw data.
 data:
 	curl https://raw.githubusercontent.com/dsfsi/covid19za/master/data/covid19za_provincial_cumulative_timeline_confirmed.csv -o data/za.csv --retry 3
-	curl https://covidtracking.com/api/v1/states/daily.csv -o data/usa.csv --retry 3
+	curl https://api.covidtracking.com/v1/states/daily.csv -o data/usa.csv --retry 3
 
 ## Export notebooks to HTML.
 html:

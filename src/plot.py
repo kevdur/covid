@@ -14,7 +14,10 @@ ZA_EVENTS = [
     (pd.Timestamp(2020, 3, 23), 'Lockdown announced'),
     (pd.Timestamp(2020, 3, 27), 'Level 5'),
     (pd.Timestamp(2020, 5, 1), 'Level 4'),
-    (pd.Timestamp(2020, 6, 1), 'Level 3')
+    (pd.Timestamp(2020, 6, 1), 'Level 3'),
+    (pd.Timestamp(2020, 8, 18), 'Level 2'),
+    (pd.Timestamp(2020, 9, 21), 'Level 1'),
+    (pd.Timestamp(2020, 12, 29), 'Level 3b')
 ]
 
 

@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+src = {editable = true, path = "."}
+hvplot = "*"
+jupyter = "*"
+numpy = "*"
+pandas = "*"
+plotly = "*"
+psutil = "*"
+scipy = "*"
+
+[dev-packages]
+flake8 = "*"
+yapf = "*"
+
+[requires]
+python_version = "3.9"
